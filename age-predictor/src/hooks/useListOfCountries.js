@@ -4,7 +4,7 @@ import axios from "axios";
 const useListOfCountries = ({ countryCode }) => {
   const [countries, setCountries] = useState(null);
   useEffect(() => {
-    const fetchCountries = (code) => {
+    const fetchCountries = async (code) => {
       if (code !== undefined)
         // Si el countryCode esta especificado retorna el pais referente al codigo.
         return axios({ method: "GET", url: "" })
@@ -24,6 +24,7 @@ const useListOfCountries = ({ countryCode }) => {
     fetchCountries(countryCode);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
   return countries;
 };
 
