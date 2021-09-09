@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TextInput.module.css";
 
-const TextInput = ({ setState, name, id, state }) => {
+const TextInput = ({ setState, name, id }) => {
   const handleChange = (e) => {
     const input =
       e.target.value !== ""
