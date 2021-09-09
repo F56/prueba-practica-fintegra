@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import styles from "./LocationSelector.module.css";
+import useListOfCountries from "../../hooks/useListOfCountries";
 
 const LocationSelector = ({ setState }) => {
-  const [countries, setCountries] = useState(null);
-  useEffect(() => {
-    axios({ method: "GET", url: "https://restcountries.eu/rest/v2/all" })
-      .then((response) => setCountries(response.data))
-      .catch((error) => console.log(error));
-  }, []);
+  const countries = useListOfCountries();
   const handleChange = (e) => {
-    const input =
-      e.target.value !== "null"
-        ? e.target.value
-        : null;
+    const input = e.target.value !== "null" ? e.target.value : null;
     setState((prev) => ({
       ...prev,
       countryCode: input,
@@ -21,7 +13,7 @@ const LocationSelector = ({ setState }) => {
   };
   return (
     <>
-      {countries ? (
+      {countries && (
         <select
           className={styles.select}
           defaultValue="null"
@@ -36,8 +28,6 @@ const LocationSelector = ({ setState }) => {
             </option>
           ))}
         </select>
-      ) : (
-        <div>Loader</div>
       )}
     </>
   );

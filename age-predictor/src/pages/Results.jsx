@@ -1,34 +1,20 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router";
+import useAgePredictor from "../hooks/useAgePredictor";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 const Results = () => {
-  const [results, setResults] = useState(null);
   let query = useQuery();
   const names = query.getAll("name");
   const country = query.get("country") !== null ? query.get("country") : null;
-  useEffect(() => {
-    const fetchNames = () => {
-      axios({
-        method: "GET",
-        url: `https://api.agify.io?name[]=${names.join("&name[]=")}${
-          country !== null ? `&country_id=${country}` : ""
-        }`,
-      })
-        .then((response) => setResults(response.data))
-        .catch((error) => console.log(error));
-    };
-    fetchNames();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const prediction = useAgePredictor(names, country);
   return (
     <>
-      {results &&
-        results.map((person, index) => (
+      {prediction &&
+        prediction.map((person, index) => (
           <div key={index}>
             {`Nombre: ${person.name}, Edad: ${person.age}${
               person.country_id ? `, Pais: ${person.country_id}` : ""
