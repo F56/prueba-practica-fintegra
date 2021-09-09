@@ -15,7 +15,9 @@ const LocationSelector = ({ setState, name, id, label }) => {
     <>
       {countries && (
         <>
-          <label htmlFor={name} className={styles.label}>{label}</label>
+          <label htmlFor={name} className={styles.label}>
+            {label}
+          </label>
           <select
             className={styles.select}
             defaultValue="null"

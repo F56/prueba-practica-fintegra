@@ -30,10 +30,25 @@ const Predictor = () => {
         handleSubmit(e);
       }}
     >
-      <TextInput label="Name" name="name" id="name" setState={setState} state={state} />
-      {state.errorMsg !== "" && <div className={styles.error}>{state.errorMsg}</div>}
-      <LocationSelector label="Location" name="location" id="location" setState={setState} />
-      <button type="submit" className={styles.button}>Predict</button>
+      <TextInput
+        label="Name"
+        name="name"
+        id="name"
+        setState={setState}
+        state={state}
+      />
+      {state.errorMsg !== "" && (
+        <div className={styles.error}>{state.errorMsg}</div>
+      )}
+      <LocationSelector
+        label="Location"
+        name="location"
+        id="location"
+        setState={setState}
+      />
+      <button type="submit" className={styles.button}>
+        Predict
+      </button>
     </form>
   );
 };

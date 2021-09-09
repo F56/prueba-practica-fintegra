@@ -14,7 +14,9 @@ const TextInput = ({ setState, name, id, label }) => {
   };
   return (
     <>
-    <label htmlFor={name} className={styles.label}>{label}</label>
+      <label htmlFor={name} className={styles.label}>
+        {label}
+      </label>
       <input
         className={styles.input}
         type="text"
