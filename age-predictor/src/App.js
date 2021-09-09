@@ -1,16 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Container from "./components/Container/Container";
 import Home from "./pages/Home";
-import Results from "./pages/Results";
+import Prediction from "./pages/Prediction";
 
 function App() {
   return (
-    <main>
+    <main className="app">
       <Router>
+        <Container>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/results" component={Results} />
+          <Route path="/prediction" component={Prediction} />
         </Switch>
+        </Container>
       </Router>
     </main>
   );

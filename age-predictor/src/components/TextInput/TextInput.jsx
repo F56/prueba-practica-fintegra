@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TextInput.module.css";
 
-const TextInput = ({ setState, name, id }) => {
+const TextInput = ({ setState, name, id, label }) => {
   const handleChange = (e) => {
     const input =
       e.target.value !== ""
@@ -13,13 +13,16 @@ const TextInput = ({ setState, name, id }) => {
     }));
   };
   return (
-    <input
-      className={styles.input}
-      type="text"
-      name={name}
-      id={id}
-      onChange={(e) => handleChange(e)}
-    />
+    <>
+    <label htmlFor={name} className={styles.label}>{label}</label>
+      <input
+        className={styles.input}
+        type="text"
+        name={name}
+        id={id}
+        onChange={(e) => handleChange(e)}
+      />
+    </>
   );
 };
 

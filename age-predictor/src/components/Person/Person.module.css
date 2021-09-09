@@ -1,0 +1,8 @@
+.person_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+}

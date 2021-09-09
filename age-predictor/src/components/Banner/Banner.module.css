@@ -1,0 +1,20 @@
+.banner_container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    border-radius: 0.5rem;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+    letter-spacing: -1px;
+    font-weight: bold;
+    color: white;
+    font-size: xx-large;
+}
+
+.text {
+    font-size: large;
+    font-weight: normal;
+}
